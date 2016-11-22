@@ -171,6 +171,11 @@
                             <constraint firstAttribute="trailing" secondItem="OBW-an-sDP" secondAttribute="trailing" id="mZN-Mq-ocL"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnGo" destination="0vm-Um-lC5" id="uJ1-sT-s9z"/>
+                        <outlet property="myWebView" destination="OBW-an-sDP" id="cOy-sP-7TB"/>
+                        <outlet property="txtURL" destination="rLS-OV-d6E" id="9m8-aE-6hg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Fg-qb-BoW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
