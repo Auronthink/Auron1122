@@ -7,20 +7,28 @@ namespace Auron.Droid
 	[Activity(Label = "Auron", MainLauncher = true, Icon = "@mipmap/icon")]
 	public class MainActivity : Activity
 	{
-		int count = 1;
+		private EditText _txtAccount;
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
 
-			// Set our view from the "main" layout resource
-			SetContentView(Resource.Layout.Main);
+			// iOS Custom Class (interface)
+			// View - Controller Binding
+			SetContentView(Resource.Layout.loginflow_loginview);
 
-			// Get our button from the layout resource,
-			// and attach an event to it
-			Button button = FindViewById<Button>(Resource.Id.myButton);
+			// View's Element - Controller's UI Control Binding
+			_txtAccount = FindViewById<EditText>(Resource.Id.loginflow_loginview_txtaccount);
 
-			button.Click += delegate { button.Text = $"{count++} clicks!"; };
+
+			var txtPassword = FindViewById<EditText>(Resource.Id.loginflow_loginview_txtpassword);
+
+			var btnlogin = FindViewById<Button>(Resource.Id.loginflow_loginview_btnlogin);
+			btnlogin.Click += (sender, e) =>
+			{
+
+			};
+
 		}
 	}
 }
