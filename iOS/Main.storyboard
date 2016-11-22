@@ -22,10 +22,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7PH-YR-s17">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="586"/>
-                                <color key="backgroundColor" red="0.36078431372549019" green="0.38823529411764707" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </webView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7lB-H4-SEf">
                                 <rect key="frame" x="313" y="617" width="60" height="30"/>
                                 <constraints>
@@ -46,21 +42,17 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="7PH-YR-s17" secondAttribute="trailing" id="39l-qe-vJQ"/>
                             <constraint firstItem="1zS-qN-MZX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="5RI-Th-XNn"/>
-                            <constraint firstItem="1zS-qN-MZX" firstAttribute="top" secondItem="7PH-YR-s17" secondAttribute="bottom" constant="31" id="EX8-V8-TW4"/>
-                            <constraint firstItem="7PH-YR-s17" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="JSj-cv-DqH"/>
                             <constraint firstAttribute="trailing" secondItem="7lB-H4-SEf" secondAttribute="trailing" constant="2" id="Mv8-en-xXk"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7lB-H4-SEf" secondAttribute="bottom" constant="20" id="dYu-UU-vY4"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1zS-qN-MZX" secondAttribute="bottom" constant="20" id="pEp-5u-Jz3"/>
                             <constraint firstItem="7lB-H4-SEf" firstAttribute="leading" secondItem="1zS-qN-MZX" secondAttribute="trailing" constant="7" id="pRX-sA-VP1"/>
-                            <constraint firstItem="7PH-YR-s17" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="uEF-kH-heP"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="135.38230884557723"/>
+            <point key="canvasLocation" x="41" y="132"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="nOc-bt-xse">
@@ -122,7 +114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8iC-mY-JQR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="824.43778110944538"/>
+            <point key="canvasLocation" x="41" y="824"/>
         </scene>
         <!--My Web View Controller-->
         <scene sceneID="IFt-bK-gUl">
@@ -137,21 +129,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OBW-an-sDP">
-                                <rect key="frame" x="0.0" y="20" width="375" height="580"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="575"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0vm-Um-lC5">
                                 <rect key="frame" x="299" y="617" width="60" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="pNR-Dh-BCQ"/>
-                                    <constraint firstAttribute="width" constant="60" id="yKN-Bb-93o"/>
+                                    <constraint firstAttribute="width" constant="60" id="ZwJ-TO-eVW"/>
+                                    <constraint firstAttribute="height" constant="30" id="nQa-t4-yyt"/>
                                 </constraints>
                                 <state key="normal" title="Go"/>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rLS-OV-d6E">
                                 <rect key="frame" x="16" y="617" width="275" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="y0B-t9-4gu"/>
+                                    <constraint firstAttribute="height" constant="30" id="VV8-M1-aCi"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -160,15 +152,15 @@
                         </subviews>
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="0vm-Um-lC5" firstAttribute="leading" secondItem="rLS-OV-d6E" secondAttribute="trailing" constant="8" id="5cu-Wd-HYe"/>
-                            <constraint firstItem="OBW-an-sDP" firstAttribute="top" secondItem="guj-4b-GLz" secondAttribute="bottom" id="9SB-tw-D8v"/>
-                            <constraint firstItem="d9G-RQ-qDi" firstAttribute="top" secondItem="0vm-Um-lC5" secondAttribute="bottom" constant="20" id="Bk1-hG-YQS"/>
-                            <constraint firstItem="0vm-Um-lC5" firstAttribute="trailing" secondItem="Pgk-Ao-fPG" secondAttribute="trailingMargin" id="RGY-pW-eLf"/>
-                            <constraint firstItem="OBW-an-sDP" firstAttribute="leading" secondItem="Pgk-Ao-fPG" secondAttribute="leading" id="TGz-Ti-ebV"/>
-                            <constraint firstItem="d9G-RQ-qDi" firstAttribute="top" secondItem="rLS-OV-d6E" secondAttribute="bottom" constant="20" id="UZB-vG-czb"/>
-                            <constraint firstItem="rLS-OV-d6E" firstAttribute="leading" secondItem="Pgk-Ao-fPG" secondAttribute="leadingMargin" id="VWM-Jx-zkl"/>
-                            <constraint firstItem="rLS-OV-d6E" firstAttribute="top" secondItem="OBW-an-sDP" secondAttribute="bottom" constant="17" id="dzN-gg-Gg0"/>
-                            <constraint firstAttribute="trailing" secondItem="OBW-an-sDP" secondAttribute="trailing" id="mZN-Mq-ocL"/>
+                            <constraint firstItem="rLS-OV-d6E" firstAttribute="leading" secondItem="Pgk-Ao-fPG" secondAttribute="leadingMargin" id="3Gh-C0-GfW"/>
+                            <constraint firstItem="0vm-Um-lC5" firstAttribute="trailing" secondItem="Pgk-Ao-fPG" secondAttribute="trailingMargin" id="3uR-JP-van"/>
+                            <constraint firstAttribute="trailing" secondItem="OBW-an-sDP" secondAttribute="trailing" id="Hnk-Oo-2vZ"/>
+                            <constraint firstItem="0vm-Um-lC5" firstAttribute="leading" secondItem="rLS-OV-d6E" secondAttribute="trailing" constant="8" id="P4X-sG-cWI"/>
+                            <constraint firstItem="0vm-Um-lC5" firstAttribute="top" secondItem="OBW-an-sDP" secondAttribute="bottom" constant="22" id="cml-tI-P2u"/>
+                            <constraint firstItem="OBW-an-sDP" firstAttribute="top" secondItem="guj-4b-GLz" secondAttribute="bottom" id="eiH-z1-hmZ"/>
+                            <constraint firstItem="0vm-Um-lC5" firstAttribute="bottom" secondItem="rLS-OV-d6E" secondAttribute="bottom" id="jra-4W-lPF"/>
+                            <constraint firstItem="OBW-an-sDP" firstAttribute="leading" secondItem="Pgk-Ao-fPG" secondAttribute="leading" id="lZB-wD-oU3"/>
+                            <constraint firstItem="d9G-RQ-qDi" firstAttribute="top" secondItem="0vm-Um-lC5" secondAttribute="bottom" constant="20" id="nuK-pS-Mzp"/>
                         </constraints>
                     </view>
                     <connections>
