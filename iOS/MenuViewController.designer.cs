@@ -9,17 +9,17 @@ using System.CodeDom.Compiler;
 
 namespace Auron.iOS
 {
-	[Register ("ViewController")]
-	partial class ViewController
+	[Register ("MenuViewController")]
+	partial class MenuViewController
 	{
 		[Outlet]
-		UIKit.UIButton helloBtn { get; set; }
+		UIKit.UITableView userTable { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (helloBtn != null) {
-				helloBtn.Dispose ();
-				helloBtn = null;
+			if (userTable != null) {
+				userTable.Dispose ();
+				userTable = null;
 			}
 		}
 	}

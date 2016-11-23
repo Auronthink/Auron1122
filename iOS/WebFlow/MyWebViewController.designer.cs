@@ -16,6 +16,9 @@ namespace Auron.iOS
 		UIKit.UIButton btnGo { get; set; }
 
 		[Outlet]
+		UIKit.NSLayoutConstraint btnGoBottomConstraint { get; set; }
+
+		[Outlet]
 		UIKit.UIWebView myWebView { get; set; }
 
 		[Outlet]
@@ -23,6 +26,16 @@ namespace Auron.iOS
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (btnGoBottomConstraint != null) {
+				btnGoBottomConstraint.Dispose ();
+				btnGoBottomConstraint = null;
+			}
+
+			if (btnGo != null) {
+				btnGo.Dispose ();
+				btnGo = null;
+			}
+
 			if (myWebView != null) {
 				myWebView.Dispose ();
 				myWebView = null;
@@ -31,11 +44,6 @@ namespace Auron.iOS
 			if (txtURL != null) {
 				txtURL.Dispose ();
 				txtURL = null;
-			}
-
-			if (btnGo != null) {
-				btnGo.Dispose ();
-				btnGo = null;
 			}
 		}
 	}

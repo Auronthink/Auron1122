@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 using UIKit;
 
@@ -16,17 +17,19 @@ namespace Auron.iOS
 		{
 			base.ViewDidLoad();
 
-			// Code to start the Xamarin Test Cloud Agent
-#if ENABLE_TEST_CLOUD
-			Xamarin.Calabash.Start ();
-#endif
+			// Open another Thread to Run
+			Task.Run(() => {
+				Task.Delay(4000);
 
-			// Perform any additional setup after loading the view, typically from a nib.
-			//Button.AccessibilityIdentifier = "myButton";
-			//Button.TouchUpInside += delegate
+				InvokeOnMainThread(() =>
+				{
+					PerformSegue("moveToLoginViewSegue", this);
+				});
+			});
+
+			//helloBtn.TouchUpInside += (sender, e) => 
 			//{
-			//	var title = string.Format("{0} clicks!", count++);
-			//	Button.SetTitle(title, UIControlState.Normal);
+			//	PerformSegue("moveToLoginViewSegue", this);
 			//};
 		}
 

@@ -9,17 +9,25 @@ using System.CodeDom.Compiler;
 
 namespace Auron.iOS
 {
-	[Register ("ViewController")]
-	partial class ViewController
+	[Register ("UserViewCell")]
+	partial class UserViewCell
 	{
 		[Outlet]
-		UIKit.UIButton helloBtn { get; set; }
+		UIKit.UILabel lblDescription { get; set; }
+
+		[Outlet]
+		UIKit.UILabel lblName { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (helloBtn != null) {
-				helloBtn.Dispose ();
-				helloBtn = null;
+			if (lblName != null) {
+				lblName.Dispose ();
+				lblName = null;
+			}
+
+			if (lblDescription != null) {
+				lblDescription.Dispose ();
+				lblDescription = null;
 			}
 		}
 	}
