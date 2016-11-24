@@ -30,6 +30,7 @@ namespace Auron.Droid
 			User user = Newtonsoft.Json.JsonConvert.DeserializeObject<User>(userString);
 
 			lbName.Text = user.Name;
+
 		}
 	}
 }

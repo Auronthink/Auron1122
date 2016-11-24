@@ -22,15 +22,16 @@ namespace Auron.iOS
 			// Controller下的View，容器的概念
 			// this.View
 
-
-
-			btnGo.TouchUpInside += (sender, e) => {
+			// loadRemote
+			btnGo.TouchUpInside += (sender, e) =>
+			{
 				if (txtURL.IsFirstResponder)
 				{
 					txtURL.ResignFirstResponder();
 				}
-				 
-				myWebView.LoadRequest(new NSUrlRequest(new NSUrl(txtURL.Text)));
+
+				// myWebView.LoadRequest(new NSUrlRequest(new NSUrl(txtURL.Text)));
+				myWebView.LoadRequest(new NSUrlRequest(new NSUrl(@"https://www.google.com")));
 			};
 
 			UIKeyboard.Notifications.ObserveWillChangeFrame((sender, e) =>
@@ -41,28 +42,43 @@ namespace Auron.iOS
 
 				WriteLine($"ObserveWillChangeFrame endRect:{endRect.Height}");
 
-				InvokeOnMainThread( () => 
-				{
-					UIView.Animate(1, () =>
-					{
-						btnGoBottomConstraint.Constant = endRect.Height + 5;
-						this.View.LayoutIfNeeded();
-					});
+				InvokeOnMainThread(() =>
+			   {
+				   UIView.Animate(1, () =>
+				   {
+					   btnGoBottomConstraint.Constant = endRect.Height + 5;
+					   this.View.LayoutIfNeeded();
+				   });
 
-				});
+			   });
 			});
 
 			UIKeyboard.Notifications.ObserveWillHide((sender, e) =>
 			{
 				InvokeOnMainThread(() =>
 			   	{
-				   UIView.Animate(1, () =>
-				   {
-					   btnGoBottomConstraint.Constant = beginBtnGoBottomConstraint;
-					   this.View.LayoutIfNeeded();
+					   UIView.Animate(1, () =>
+					   {
+						   btnGoBottomConstraint.Constant = beginBtnGoBottomConstraint;
+						   this.View.LayoutIfNeeded();
+					   });
 				   });
-			   });
 			});
+
+			// loadLocal
+			myWebView.LoadHtmlString(@"
+			<html>
+				<head>
+				<title>Local String</title>
+				<style type='text/css'>p{font-family : Verdana; color : purple }</style>
+				<script language='JavaScript'> function msg(){alert('Hi !');}</script>
+				</head>
+				<body>
+				<p>Hello World!</p><br />
+				<button type='button' onclick='msg()' text='Hi'>Hi</button>
+				</body>
+			</html>", null);
+
 		}
 
 		public override void DidReceiveMemoryWarning()
