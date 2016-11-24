@@ -31,6 +31,14 @@ namespace Auron.Droid
 
 			lbName.Text = user.Name;
 
+
+			var btnWeb = FindViewById<Button>(Resource.Id.btnWeb);
+
+			btnWeb.Click += (sender, e) => {
+				Intent nextActivity = new Intent(this, typeof(WebActivity));
+
+				StartActivity(nextActivity);
+			};
 		}
 	}
 }

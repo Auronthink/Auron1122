@@ -17,6 +17,8 @@
         />
     
     <EditText
+    	android:id="@+id/webflow_mywebview_txtUrl"
+			
         android:layout_width="match_parent"
         android:layout_height="30dp"
 
@@ -28,6 +30,9 @@
         />
 
     <WebView
+    	android:id="@+id/webflow_mywebview"
+
+			
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 

@@ -163,15 +163,15 @@
                         <viewControllerLayoutGuide type="bottom" id="d9G-RQ-qDi"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Pgk-Ao-fPG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OBW-an-sDP">
-                                <rect key="frame" x="16" y="20" width="343" height="601"/>
+                                <rect key="frame" x="16" y="0.0" width="343" height="557"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0vm-Um-lC5">
-                                <rect key="frame" x="299" y="629" width="60" height="30"/>
+                                <rect key="frame" x="299" y="565" width="60" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="ZwJ-TO-eVW"/>
                                     <constraint firstAttribute="height" constant="30" id="nQa-t4-yyt"/>
@@ -179,7 +179,7 @@
                                 <state key="normal" title="Go"/>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rLS-OV-d6E">
-                                <rect key="frame" x="16" y="629" width="275" height="30"/>
+                                <rect key="frame" x="16" y="565" width="275" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Su5-8S-CcU"/>
                                 </constraints>
@@ -201,6 +201,7 @@
                             <constraint firstItem="d9G-RQ-qDi" firstAttribute="top" secondItem="0vm-Um-lC5" secondAttribute="bottom" constant="8" id="nuK-pS-Mzp"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="btnGo" destination="0vm-Um-lC5" id="uJ1-sT-s9z"/>
                         <outlet property="btnGoBottomConstraint" destination="nuK-pS-Mzp" id="kIa-G2-oU6"/>
@@ -284,7 +285,7 @@
                     <navigationItem key="navigationItem" id="gHE-8L-bZA"/>
                     <connections>
                         <outlet property="userTable" destination="sEV-nA-ZPb" id="1J7-jP-xMo"/>
-                        <segue destination="xjE-5M-Ypy" kind="showDetail" identifier="moveToDetailViewSegue" id="WGD-0W-aLd"/>
+                        <segue destination="xjE-5M-Ypy" kind="show" identifier="moveToDetailViewSegue" action="showDetailViewController:sender:" id="WGD-0W-aLd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YEy-DB-gyT" userLabel="First Responder" sceneMemberID="firstResponder"/>
