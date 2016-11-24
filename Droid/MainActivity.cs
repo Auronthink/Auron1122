@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Widget;
 using Android.OS;
+using Android.Content;
 
 namespace Auron.Droid
 {
@@ -20,13 +21,14 @@ namespace Auron.Droid
 			// View's Element - Controller's UI Control Binding
 			_txtAccount = FindViewById<EditText>(Resource.Id.loginflow_loginview_txtaccount);
 
-
 			var txtPassword = FindViewById<EditText>(Resource.Id.loginflow_loginview_txtpassword);
-
 			var btnlogin = FindViewById<Button>(Resource.Id.loginflow_loginview_btnlogin);
+
 			btnlogin.Click += (sender, e) =>
 			{
-
+				Intent nextActivity = new Intent( this, typeof(MenuActivity));
+			
+				StartActivity(nextActivity);
 			};
 
 		}
