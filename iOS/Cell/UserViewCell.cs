@@ -14,7 +14,8 @@ namespace Auron.iOS
 
 		public void UpdateUI (User user)
 		{
-			
+			lblName.Text = user.Name;
+			lblDescription.Text = user.Description;
 		}
 	}
 }
