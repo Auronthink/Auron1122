@@ -16,6 +16,11 @@ namespace Auron.iOS
 			base.ViewDidLoad();
 			// Perform any additional setup after loading the view, typically from a nib.
 			Title = SelectedUser.Name;
+
+			btnWeb.TouchUpInside += (sender, e) =>
+			{
+				PerformSegue("moveToWebViewSegue", this);
+			};
 		}
 
 		public override void DidReceiveMemoryWarning()
