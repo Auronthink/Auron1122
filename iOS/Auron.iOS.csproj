@@ -152,6 +152,16 @@
     <Compile Include="Cell\UserViewCell.designer.cs">
       <DependentUpon>UserViewCell.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cell\FoodViewCell.cs" />
+    <Compile Include="Cell\FoodViewCell.designer.cs">
+      <DependentUpon>FoodViewCell.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cake.jpg" />
+    <BundleResource Include="Resources\frice.jpeg" />
+    <BundleResource Include="Resources\ice.jpeg" />
+    <BundleResource Include="Resources\tempura.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

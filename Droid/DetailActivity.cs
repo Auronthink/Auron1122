@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +27,7 @@ namespace Auron.Droid
 			var lbName = FindViewById<TextView>(Resource.Id.detailview_lbName);
 
 			var userString = Intent.GetStringExtra("selectedUser");
-			User user = Newtonsoft.Json.JsonConvert.DeserializeObject<User>(userString);
+			Food user = Newtonsoft.Json.JsonConvert.DeserializeObject<Food>(userString);
 
 			lbName.Text = user.Name;
 

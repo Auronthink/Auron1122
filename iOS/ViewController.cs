@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 
 using UIKit;
+using static System.Console;
 
 namespace Auron.iOS
 {
@@ -20,12 +21,12 @@ namespace Auron.iOS
 			// Open another Thread to Run
 			Task.Run(() => {
 				Task.Delay(4000);
-
 				InvokeOnMainThread(() =>
 				{
 					PerformSegue("moveToLoginViewSegue", this);
 				});
 			});
+
 
 			//helloBtn.TouchUpInside += (sender, e) => 
 			//{

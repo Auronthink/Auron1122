@@ -9,8 +9,8 @@ using System.CodeDom.Compiler;
 
 namespace Auron.iOS
 {
-	[Register ("UserViewCell")]
-	partial class UserViewCell
+	[Register ("FoodViewCell")]
+	partial class FoodViewCell
 	{
 		[Outlet]
 		UIKit.UIImageView imgFood { get; set; }

@@ -125,7 +125,15 @@ namespace Auron.Droid
 			_InputMethodManager =
 				(InputMethodManager)GetSystemService(Context.InputMethodService);
 
+			TxtUrl = FindViewById<EditText>(Resource.Id.webflow_mywebview_txtUrl);
 
+			TxtUrl.TextChanged += (object sender,
+				Android.Text.TextChangedEventArgs e) =>
+			{
+
+				Debug.WriteLine(TxtUrl.Text + ":" + e.Text);
+
+			};
 
 			#endregion
 
@@ -138,6 +146,38 @@ namespace Auron.Droid
 				{
 
 					MyWebView.EvaluateJavascript(@"msg();", callResult);
+
+					/*
+					var url = TxtUrl.Text.Trim() ;
+
+					AlertDialog.Builder alert = new AlertDialog.Builder (this);
+					alert.SetTitle (url);
+					alert.SetNegativeButton( "取消", (senderAlert, args) =>{
+
+
+					});
+					alert.SetPositiveButton( "確認", (senderAlert, args) =>{
+
+						RunOnUiThread(
+							()=>{
+								AndHUD.Shared.Show(this, "Status Message", -1, MaskType.Clear);
+							}
+
+						);
+
+						MyWebView.LoadUrl (url);
+
+					});
+
+					RunOnUiThread (() => {
+						alert.Show();
+					} );
+
+					// 
+					_InputMethodManager.HideSoftInputFromWindow( 
+						TxtUrl.WindowToken, 
+						HideSoftInputFlags.None );
+					*/
 				});
 						
 			};

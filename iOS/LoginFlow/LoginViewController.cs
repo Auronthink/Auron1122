@@ -38,6 +38,12 @@ namespace Auron.iOS
 
 			};
 
+			//btnLogin.TouchUpInside += (object sender, EventArgs e) =>
+			//{
+			//	PerformSegue("moveToMenuViewSegue", this);
+
+			//};
+
 			//btnLogin.TouchUpInside += (sender, e) =>
 			//{
 			//	WriteLine($"TouchUpInside");
@@ -77,6 +83,7 @@ namespace Auron.iOS
 			}
 			public event EventHandler<HtmlReceivedEventArgs> HtmlStringReceived;
 		}
+
 		public class HtmlReceivedEventArgs : EventArgs
 		{
 			public string Html { get; set; }

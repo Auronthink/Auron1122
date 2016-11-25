@@ -9,7 +9,9 @@ namespace Auron.iOS
 {
 	public partial class MyWebViewController : UIViewController
 	{
-		public MyWebViewController(IntPtr handle) : base(handle)// 這樣就是Storyboard去binding，而不是從xib
+		public string webUrl { get; set; }
+
+		public MyWebViewController(IntPtr handle) : base(handle)
 		{
 		}
 
@@ -22,6 +24,8 @@ namespace Auron.iOS
 			// Controller下的View，容器的概念
 			// this.View
 
+			myWebView.LoadRequest(new NSUrlRequest(new NSUrl(webUrl)));
+
 			// loadRemote
 			btnGo.TouchUpInside += (sender, e) =>
 			{
@@ -30,102 +34,104 @@ namespace Auron.iOS
 					txtURL.ResignFirstResponder();
 				}
 
-				// myWebView.LoadRequest(new NSUrlRequest(new NSUrl(txtURL.Text)));
-				myWebView.LoadRequest(new NSUrlRequest(new NSUrl(@"https://www.google.com")));
+				myWebView.LoadRequest(new NSUrlRequest(new NSUrl(txtURL.Text)));
+				// myWebView.LoadRequest(new NSUrlRequest(new NSUrl(@"https://www.google.com")));
 			};
 
-			UIKeyboard.Notifications.ObserveWillChangeFrame((sender, e) =>
-			{
+			#region CallNatived
+			//UIKeyboard.Notifications.ObserveWillChangeFrame((sender, e) =>
+			//{
 
-				var beginRect = e.FrameBegin;
-				var endRect = e.FrameEnd;
+			//	var beginRect = e.FrameBegin;
+			//	var endRect = e.FrameEnd;
 
-				WriteLine($"ObserveWillChangeFrame endRect:{endRect.Height}");
+			//	WriteLine($"ObserveWillChangeFrame endRect:{endRect.Height}");
 
-				InvokeOnMainThread(() =>
-			   {
-				   UIView.Animate(1, () =>
-				   {
-					   btnGoBottomConstraint.Constant = endRect.Height + 5;
-					   this.View.LayoutIfNeeded();
-				   });
+			//	InvokeOnMainThread(() =>
+			//   {
+			//	   UIView.Animate(1, () =>
+			//	   {
+			//		   btnGoBottomConstraint.Constant = endRect.Height + 5;
+			//		   this.View.LayoutIfNeeded();
+			//	   });
 
-			   });
-			});
+			//   });
+			//});
 
-			UIKeyboard.Notifications.ObserveWillHide((sender, e) =>
-			{
-				InvokeOnMainThread(() =>
-			   	{
-					   UIView.Animate(1, () =>
-					   {
-						   btnGoBottomConstraint.Constant = beginBtnGoBottomConstraint;
-						   this.View.LayoutIfNeeded();
-					   });
-				   });
-			});
+			//UIKeyboard.Notifications.ObserveWillHide((sender, e) =>
+			//{
+			//	InvokeOnMainThread(() =>
+			//   	{
+			//		   UIView.Animate(1, () =>
+			//		   {
+			//			   btnGoBottomConstraint.Constant = beginBtnGoBottomConstraint;
+			//			   this.View.LayoutIfNeeded();
+			//		   });
+			//	   });
+			//});
 
-			// call native
-			myWebView.LoadHtmlString(@"
-			<html>
-				<head>
-					<title>Local String</title>
-					<style type='text/css'>p{font-family : Verdana; color : purple }</style>
-					<script language='JavaScript'> 
-						function msg(){ 
-							window.location = 'shirly://Hi'  
-						}
-					</script>
-				</head>
-				<body>
-					<p>Hello World!</p><br />
-					<button type='button' onclick='msg()' text='Hi'>Hi</button>
-				</body>
-			</html>", null);
+			//// call native
+			//myWebView.LoadHtmlString(@"
+			//<html>
+			//	<head>
+			//		<title>Local String</title>
+			//		<style type='text/css'>p{font-family : Verdana; color : purple }</style>
+			//		<script language='JavaScript'> 
+			//			function msg(){ 
+			//				window.location = 'shirly://Hi'  
+			//			}
+			//		</script>
+			//	</head>
+			//	<body>
+			//		<p>Hello World!</p><br />
+			//		<button type='button' onclick='msg()' text='Hi'>Hi</button>
+			//	</body>
+			//</html>", null);
 
-			myWebView.ShouldStartLoad =
-				delegate (UIWebView webView,
-					NSUrlRequest request,
-					UIWebViewNavigationType navigationType)
-				{
+			//myWebView.ShouldStartLoad =
+			//	delegate (UIWebView webView,
+			//		NSUrlRequest request,
+			//		UIWebViewNavigationType navigationType)
+			//	{
 
-					var requestString = request.Url.AbsoluteString;
+			//		var requestString = request.Url.AbsoluteString;
 
-					var components = requestString.Split(new[] { @"://" }, StringSplitOptions.None);
+			//		var components = requestString.Split(new[] { @"://" }, StringSplitOptions.None);
 
-					if (components.Length > 1 && components[0].ToLower() == @"shirly".ToLower())
-					{
+			//		if (components.Length > 1 && components[0].ToLower() == @"shirly".ToLower())
+			//		{
 
-						if (components[1] == @"Hi")
-						{
+			//			if (components[1] == @"Hi")
+			//			{
 
-							UIAlertController alert = UIAlertController.Create(@"Hi Title", @"當然是世界好", UIAlertControllerStyle.Alert);
-
-
-							UIAlertAction okAction = UIAlertAction.Create(@"OK", UIAlertActionStyle.Default, (action) =>
-							{
-								Console.WriteLine(@"OK");
-							});
-							alert.AddAction(okAction);
+			//				UIAlertController alert = UIAlertController.Create(@"Hi Title", @"當然是世界好", UIAlertControllerStyle.Alert);
 
 
-							UIAlertAction cancelAction = UIAlertAction.Create(@"Cancel", UIAlertActionStyle.Default, (action) =>
-							{
-								Console.WriteLine(@"Cancel");
-							});
-							alert.AddAction(cancelAction);
-
-							PresentViewController(alert, true, null);
+			//				UIAlertAction okAction = UIAlertAction.Create(@"OK", UIAlertActionStyle.Default, (action) =>
+			//				{
+			//					Console.WriteLine(@"OK");
+			//				});
+			//				alert.AddAction(okAction);
 
 
-							return false;
-						}
+			//				UIAlertAction cancelAction = UIAlertAction.Create(@"Cancel", UIAlertActionStyle.Default, (action) =>
+			//				{
+			//					Console.WriteLine(@"Cancel");
+			//				});
+			//				alert.AddAction(cancelAction);
 
-					}
+			//				PresentViewController(alert, true, null);
 
-					return true;
 
-				};
+			//				return false;
+			//			}
+
+			//		}
+
+			//		return true;
+
+			//	};
+ 			#endregion
 
 		}
 

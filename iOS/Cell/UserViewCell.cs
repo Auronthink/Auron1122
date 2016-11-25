@@ -16,6 +16,7 @@ namespace Auron.iOS
 		{
 			lblName.Text = user.Name;
 			lblDescription.Text = user.Description;
+			//imgFood.Image = UIImage.FromFile(user.Img);
 		}
 	}
 }

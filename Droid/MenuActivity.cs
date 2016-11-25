@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,42 +33,42 @@ namespace Auron.Droid
 		private void LoadData()
 		{
 
-			var list = new List<User>
+			var list = new List<Food>
 			{
-				new User {Name = @"Aa", Description = @"使用者 甲"},
-				new User {Name = @"Bb", Description = @"使用者 乙"},
-				new User {Name = @"Cc", Description = @"使用者 丙"},
-				new User {Name = @"Dd", Description = @"使用者 丁"}
+				new Food {Name = @"Aa", Description = @"使用者 甲"},
+				new Food {Name = @"Bb", Description = @"使用者 乙"},
+				new Food {Name = @"Cc", Description = @"使用者 丙"},
+				new Food {Name = @"Dd", Description = @"使用者 丁"}
 			};
 
-			RunOnUiThread(
-				() =>
+            RunOnUiThread(
+(Action)(() =>
 				{
 
-					userTable.Adapter = new UserListAdapter(list, this);
-					userTable.ItemClick += (sender, args) =>
+                    userTable.Adapter = new UserListAdapter(list, this);
+                    userTable.ItemClick += (sender, args) =>
 					{
-						User user = list[args.Position];
+                        Food user = list[args.Position];
 
-						WriteLine($"{user.Name} selected!!!!");
+                        WriteLine($"{user.Name} selected!!!!");
 
-						Intent nextActivity = new Intent(this, typeof(DetailActivity));
+                        Intent nextActivity = new Intent(this, typeof(DetailActivity));
 
 						nextActivity.PutExtra("selectedUser", Newtonsoft.Json.JsonConvert.SerializeObject(user));
 
-						StartActivity(nextActivity);
+						base.StartActivity(nextActivity);
 					};
 
-				}
+				})
 			);
 
 		}
 
-		public class UserListAdapter : BaseAdapter<User>
+		public class UserListAdapter : BaseAdapter<Food>
 		{
 			private Activity context;
 
-			private List<User> Users { get; set; }
+			private List<Food> Users { get; set; }
 
 			/// <summary>
 			/// Initializes a new instance of the <see cref="T:XamarinTableView.Droid.MainActivity.UserListAdapter"/> class.
@@ -76,11 +76,11 @@ namespace Auron.Droid
 			/// </summary>
 			/// <param name="users">Users.</param>
 			/// <param name="context">Context.</param>
-			public UserListAdapter(IEnumerable<User> users, Activity context)
+			public UserListAdapter(IEnumerable<Food> users, Activity context)
 			{
 				this.context = context;
 
-				Users = new List<User>();
+				Users = new List<Food>();
 				Users.AddRange(users);
 			}
 
@@ -120,7 +120,7 @@ namespace Auron.Droid
 				}
 
 				// Data Binding
-				User user = Users[position];
+				Food user = Users[position];
 
 				view.FindViewById<TextView>(Resource.Id.menuview_userview_lbName).Text = user.Name;
 				view.FindViewById<TextView>(Resource.Id.menuview_userview_lbDescription).Text = user.Description;
@@ -133,7 +133,7 @@ namespace Auron.Droid
 			/// Gets the <see cref="T:XamarinTableView.Droid.MainActivity.UserListAdapter"/> with the specified position.
 			/// </summary>
 			/// <param name="position">Position.</param>
-			public override User this[int position] => Users[position];
+			public override Food this[int position] => Users[position];
 		}
 	}
 }
